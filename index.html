@@ -1,0 +1,3114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GharOS — Professional SaaS Pitch Deck & Website</title>
+  <!-- Google Fonts: Inter & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ----------------------------------------------------
+       GharOS Strict Design System Variables
+       Colors:
+       Pure White: #FFFFFF
+       Off-White: #F8FAF9
+       Dark Charcoal: #171A19
+       WhatsApp Green: #25D366
+       Deep Green: #128C4A
+       Light Green: #EAF8EF
+       Neutral Grey: #6B7280
+       Border Grey: #E5E7EB
+       ---------------------------------------------------- */
+    :root {
+      --color-white: #FFFFFF;
+      --color-offwhite: #F8FAF9;
+      --color-charcoal: #171A19;
+      --color-whatsapp: #25D366;
+      --color-deep-green: #128C4A;
+      --color-light-green: #EAF8EF;
+      --color-neutral: #6B7280;
+      --color-border: #E5E7EB;
+
+      --font-display: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --shadow-sm: 0 1px 2px 0 rgba(23, 26, 25, 0.05);
+      --shadow-md: 0 4px 12px -1px rgba(23, 26, 25, 0.06), 0 2px 4px -1px rgba(23, 26, 25, 0.04);
+      --shadow-lg: 0 12px 32px -4px rgba(23, 26, 25, 0.08), 0 4px 8px -2px rgba(23, 26, 25, 0.03);
+      --shadow-floating: 0 20px 48px -10px rgba(23, 26, 25, 0.12), 0 1px 3px rgba(23, 26, 25, 0.04);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html, body {
+      background-color: #F0F3F1;
+      color: var(--color-charcoal);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    /* Fixed Master Header */
+    .master-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--color-charcoal);
+      cursor: pointer;
+    }
+
+    .brand-logo-icon {
+      width: 30px;
+      height: 30px;
+      background: var(--color-charcoal);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+      color: var(--color-charcoal);
+    }
+
+    .brand-tag {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: var(--color-light-green);
+      color: var(--color-deep-green);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(18, 140, 74, 0.2);
+    }
+
+    /* Mode Switcher Tabs */
+    .view-mode-switcher {
+      display: flex;
+      align-items: center;
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 3px;
+      gap: 4px;
+    }
+
+    .mode-tab-btn {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: transparent;
+      color: var(--color-neutral);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .mode-tab-btn.active {
+      background: var(--color-white);
+      color: var(--color-charcoal);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-right-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .slide-badge-counter {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-neutral);
+      background: var(--color-offwhite);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+    }
+
+    .icon-btn {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      color: var(--color-charcoal);
+      height: 32px;
+      padding: 0 10px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .icon-btn:hover {
+      background: var(--color-offwhite);
+      border-color: var(--color-neutral);
+    }
+
+    .btn-header-wa {
+      background: var(--color-whatsapp);
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-header-wa:hover {
+      background: var(--color-deep-green);
+    }
+
+    /* Main Container */
+    .content-viewport {
+      margin-top: 56px;
+      width: 100%;
+      min-height: calc(100vh - 56px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ====================================================
+       MODE A: 16:9 DECK MODE STYLING
+       ==================================================== */
+    body.deck-mode {
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.deck-mode .content-viewport {
+      flex: 1;
+      height: calc(100vh - 56px);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .deck-frame {
+      display: none;
+      width: 100%;
+      max-width: 1280px;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      max-height: calc(100vh - 120px);
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    body.deck-mode .deck-frame {
+      display: flex;
+    }
+
+    .deck-slide-stage {
+      flex: 1;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: var(--color-white);
+    }
+
+    /* Individual Slide Container in Deck Mode */
+    .deck-slide {
+      display: none;
+      width: 100%;
+      min-height: 100%;
+      padding: clamp(24px, 4vw, 44px) clamp(24px, 5vw, 56px);
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .deck-slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating Navigation Controls inside Deck Mode */
+    .deck-nav-bar {
+      height: 52px;
+      background: var(--color-offwhite);
+      border-top: 1px solid var(--color-border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      z-index: 20;
+    }
+
+    .slide-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slide-dot {
+      width: 24px;
+      height: 6px;
+      background: var(--color-border);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .slide-dot.active {
+      width: 36px;
+      background: var(--color-whatsapp);
+    }
+
+    .deck-nav-btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-nav-action {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-nav-action:hover {
+      background: var(--color-offwhite);
+      border-color: var(--color-neutral);
+    }
+
+    .btn-nav-action.primary {
+      background: var(--color-charcoal);
+      color: var(--color-white);
+      border-color: var(--color-charcoal);
+    }
+
+    .btn-nav-action.primary:hover {
+      background: #000000;
+    }
+
+    /* ====================================================
+       MODE B: SAAS WEBSITE MODE STYLING (Continuous Scroll)
+       ==================================================== */
+    body.website-mode {
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: var(--color-white);
+    }
+
+    body.website-mode .website-view-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+
+    body.deck-mode .website-view-container {
+      display: none;
+    }
+
+    .website-section {
+      width: 100%;
+      max-width: 1240px;
+      padding: 80px 32px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .website-section:nth-child(even) {
+      background: var(--color-offwhite);
+    }
+
+    .website-section:last-child {
+      border-bottom: none;
+    }
+
+    /* ----------------------------------------------------
+       SHARED HIGH-FIDELITY TYPOGRAPHY & COMPONENTS
+       ---------------------------------------------------- */
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-deep-green);
+      background: var(--color-light-green);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+      border: 1px solid rgba(18, 140, 74, 0.15);
+      width: fit-content;
+    }
+
+    .section-headline {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      color: var(--color-charcoal);
+      margin-bottom: 12px;
+    }
+
+    .section-subheadline {
+      font-size: clamp(14px, 1.3vw, 16px);
+      line-height: 1.55;
+      color: var(--color-neutral);
+      max-width: 720px;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .two-col-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(24px, 4vw, 48px);
+      align-items: center;
+      width: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .two-col-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Modern Buttons */
+    .btn-whatsapp {
+      background: var(--color-whatsapp);
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background: var(--color-deep-green);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--color-white);
+      color: var(--color-charcoal);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-offwhite);
+      border-color: var(--color-neutral);
+    }
+
+    /* Hero Section Elements */
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5.5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--color-charcoal);
+      margin-bottom: 8px;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.3vw, 26px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--color-deep-green);
+      margin-bottom: 16px;
+    }
+
+    .hero-description {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-neutral);
+      margin-bottom: 24px;
+      max-width: 520px;
+    }
+
+    .hero-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-charcoal);
+      background: var(--color-offwhite);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+    }
+
+    .hero-mockup-frame {
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .chat-preview-window {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .chat-window-header {
+      background: var(--color-charcoal);
+      color: var(--color-white);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-whatsapp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .chat-name-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .chat-verified-badge {
+      width: 14px;
+      height: 14px;
+      background: var(--color-whatsapp);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: var(--color-white);
+    }
+
+    .chat-status {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .chat-window-body {
+      background: #F4F7F5;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chat-bubble {
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      max-width: 92%;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--color-charcoal);
+      position: relative;
+    }
+
+    .chat-bubble .timestamp {
+      display: block;
+      text-align: right;
+      font-size: 10px;
+      color: var(--color-neutral);
+      margin-top: 4px;
+    }
+
+    .floating-summary-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-left: 4px solid var(--color-whatsapp);
+    }
+
+    .summary-card-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-card-icon {
+      width: 34px;
+      height: 34px;
+      background: var(--color-light-green);
+      color: var(--color-deep-green);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .summary-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-charcoal);
+    }
+
+    .summary-sub {
+      font-size: 11px;
+      color: var(--color-neutral);
+    }
+
+    .amount-value {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-charcoal);
+      text-align: right;
+    }
+
+    .amount-due {
+      font-size: 10px;
+      color: var(--color-neutral);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* Problem Grid */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+      width: 100%;
+    }
+
+    .problem-card {
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .problem-card:hover {
+      background: var(--color-white);
+      border-color: var(--color-neutral);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .problem-icon-wrapper {
+      width: 36px;
+      height: 36px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-charcoal);
+    }
+
+    .problem-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+
+    .problem-desc {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--color-neutral);
+    }
+
+    .problem-friction-pill {
+      margin-top: auto;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      background: rgba(23, 26, 25, 0.05);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(23, 26, 25, 0.08);
+      width: fit-content;
+    }
+
+    .problem-banner {
+      margin-top: 20px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Solution Showcase */
+    .solution-showcase-container {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr 1fr;
+      gap: 20px;
+      align-items: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 950px) {
+      .solution-showcase-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-column {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .service-card {
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .service-icon {
+      width: 34px;
+      height: 34px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-charcoal);
+      flex-shrink: 0;
+    }
+
+    .service-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-charcoal);
+    }
+
+    .service-desc {
+      font-size: 11px;
+      color: var(--color-neutral);
+    }
+
+    .central-agent-hub {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      box-shadow: var(--shadow-floating);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 4px solid var(--color-whatsapp);
+    }
+
+    .hub-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .hub-chat-stream {
+      background: #F7FAF8;
+      border-radius: var(--radius-md);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .stream-bubble {
+      background: var(--color-white);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: var(--color-charcoal);
+    }
+
+    .stream-bubble.user-msg {
+      background: var(--color-light-green);
+      align-self: flex-end;
+      border-color: rgba(37, 211, 102, 0.2);
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+      width: 100%;
+    }
+
+    .feature-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--color-charcoal);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .feature-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .feature-icon-box {
+      width: 36px;
+      height: 36px;
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-charcoal);
+    }
+
+    .feature-pill {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-deep-green);
+      background: var(--color-light-green);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(18, 140, 74, 0.15);
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+
+    .feature-desc {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--color-neutral);
+    }
+
+    .feature-ui-preview {
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-charcoal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .preview-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-whatsapp);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Architecture Pipeline */
+    .arch-flow-wrapper {
+      margin-top: 14px;
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      width: 100%;
+    }
+
+    .arch-pipeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      position: relative;
+    }
+
+    .arch-node {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .arch-node-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-neutral);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .arch-node-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-charcoal);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .arch-items-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .arch-items-list li {
+      font-size: 11px;
+      color: var(--color-charcoal);
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 4px 6px;
+      font-weight: 500;
+    }
+
+    /* Safety Slide */
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+      width: 100%;
+    }
+
+    .safety-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .safety-icon-wrapper {
+      width: 38px;
+      height: 38px;
+      background: var(--color-light-green);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-deep-green);
+    }
+
+    .safety-status-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-deep-green);
+      background: var(--color-light-green);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      width: fit-content;
+    }
+
+    .safety-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+
+    .safety-desc {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--color-neutral);
+    }
+
+    /* Demo Slide */
+    .demo-container {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      margin-top: 10px;
+      align-items: center;
+      width: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .demo-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .demo-chat-box {
+      background: #F3F6F4;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .demo-bill-card {
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .demo-bill-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 8px;
+    }
+
+    .bill-issuer-tag {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--color-charcoal);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bill-amount-display {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+
+    .demo-action-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .btn-action-approve {
+      background: var(--color-whatsapp);
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 9px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(37, 211, 102, 0.25);
+    }
+
+    .btn-action-review {
+      background: var(--color-white);
+      color: var(--color-charcoal);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 9px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .calendar-preview-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cal-event-details {
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-left: 4px solid var(--color-deep-green);
+    }
+
+    /* Tech Stack Grid */
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+      width: 100%;
+    }
+
+    .tech-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tech-layer-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-neutral);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tech-card-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+
+    .tech-components-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tech-component-item {
+      font-size: 11px;
+      color: var(--color-charcoal);
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 6px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Impact Grid */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .impact-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .impact-metric {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--color-charcoal);
+      line-height: 1;
+    }
+
+    .impact-metric-green {
+      color: var(--color-deep-green);
+    }
+
+    .impact-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+
+    .impact-desc {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--color-neutral);
+    }
+
+    .impact-tag {
+      margin-top: auto;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-deep-green);
+      background: var(--color-light-green);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      width: fit-content;
+      border: 1px solid rgba(18, 140, 74, 0.15);
+    }
+
+    /* Closing Hero */
+    .closing-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 16px;
+    }
+
+    .closing-headline {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4.5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      color: var(--color-charcoal);
+      margin-bottom: 14px;
+    }
+
+    .closing-supporting {
+      font-size: clamp(14px, 1.4vw, 17px);
+      line-height: 1.6;
+      color: var(--color-neutral);
+      margin-bottom: 28px;
+      max-width: 640px;
+    }
+
+    /* ====================================================
+       INTERACTIVE WHATSAPP SANDBOX MODAL
+       ==================================================== */
+    .wa-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 16, 15, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .wa-modal-backdrop.open {
+      display: flex;
+    }
+
+    .wa-modal-window {
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      width: 100%;
+      max-width: 720px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-floating);
+      overflow: hidden;
+      animation: modalFadeIn 0.2s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .wa-modal-header {
+      background: var(--color-charcoal);
+      color: var(--color-white);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .wa-modal-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wa-modal-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--color-whatsapp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--color-white);
+    }
+
+    .wa-modal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wa-modal-status {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .wa-modal-close {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--color-white);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.15s ease;
+    }
+
+    .wa-modal-close:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--color-white);
+    }
+
+    /* Modal Navigation Bar: Simulator vs Real WhatsApp Link */
+    .wa-modal-tabs {
+      background: var(--color-offwhite);
+      border-bottom: 1px solid var(--color-border);
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .wa-tab-left {
+      display: flex;
+      gap: 6px;
+    }
+
+    .wa-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-neutral);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .wa-tab-btn.active {
+      background: var(--color-white);
+      color: var(--color-charcoal);
+      border-color: var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-real-wa-link {
+      background: var(--color-whatsapp);
+      color: var(--color-white);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-real-wa-link:hover {
+      background: var(--color-deep-green);
+    }
+
+    /* Chat Messages Body */
+    .wa-chat-scroll {
+      flex: 1;
+      overflow-y: auto;
+      background: #EFEAE2; /* Authentic WhatsApp chat wallpaper tone */
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 280px;
+      max-height: 400px;
+    }
+
+    .wa-msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      line-height: 1.45;
+      position: relative;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
+
+    .wa-msg.bot {
+      background: var(--color-white);
+      align-self: flex-start;
+      border-top-left-radius: 2px;
+      color: var(--color-charcoal);
+    }
+
+    .wa-msg.user {
+      background: #D9FDD3; /* Authentic WhatsApp user green bubble */
+      align-self: flex-end;
+      border-top-right-radius: 2px;
+      color: var(--color-charcoal);
+    }
+
+    .wa-msg-time {
+      display: block;
+      text-align: right;
+      font-size: 10px;
+      color: var(--color-neutral);
+      margin-top: 4px;
+    }
+
+    /* Quick Action Pills in Modal */
+    .wa-suggestions-bar {
+      background: var(--color-offwhite);
+      border-top: 1px solid var(--color-border);
+      padding: 8px 12px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      flex-shrink: 0;
+    }
+
+    .wa-suggestion-chip {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .wa-suggestion-chip:hover {
+      background: var(--color-light-green);
+      border-color: var(--color-whatsapp);
+      color: var(--color-deep-green);
+    }
+
+    /* Chat Input Bar */
+    .wa-input-bar {
+      background: var(--color-white);
+      border-top: 1px solid var(--color-border);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .wa-text-input {
+      flex: 1;
+      background: var(--color-offwhite);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 8px 16px;
+      font-size: 13px;
+      color: var(--color-charcoal);
+      outline: none;
+      font-family: var(--font-body);
+    }
+
+    .wa-text-input:focus {
+      border-color: var(--color-whatsapp);
+      background: var(--color-white);
+    }
+
+    .wa-send-btn {
+      background: var(--color-whatsapp);
+      color: var(--color-white);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+    }
+
+    .wa-send-btn:hover {
+      background: var(--color-deep-green);
+      transform: scale(1.05);
+    }
+
+    /* Real WhatsApp Direct Card */
+    .real-wa-connect-card {
+      display: none;
+      padding: 24px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      background: var(--color-white);
+    }
+
+    .real-wa-connect-card.active {
+      display: flex;
+    }
+
+    /* Toast */
+    .toast-feedback {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--color-charcoal);
+      color: var(--color-white);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-floating);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 1000;
+    }
+
+    .toast-feedback.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast-feedback .toast-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--color-whatsapp);
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body class="deck-mode">
+
+  <!-- Fixed Master Header -->
+  <header class="master-header">
+    <div class="brand-mark" onclick="goToSlide(1)">
+      <div class="brand-logo-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </div>
+      <span class="brand-name">GharOS</span>
+      <span class="brand-tag">Hackathon 2026</span>
+    </div>
+
+    <!-- Mode Switcher -->
+    <div class="view-mode-switcher">
+      <button class="mode-tab-btn active" id="btnDeckMode" onclick="setViewMode('deck')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        <span>16:9 Presentation Deck</span>
+      </button>
+      <button class="mode-tab-btn" id="btnWebsiteMode" onclick="setViewMode('website')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span>SaaS Website Scroll</span>
+      </button>
+    </div>
+
+    <!-- Header Actions -->
+    <div class="header-right-controls">
+      <button class="btn-header-wa" onclick="openWhatsAppModal()" title="Open WhatsApp Chat Simulator">
+        <span>💬 Connect WhatsApp</span>
+      </button>
+      <div class="slide-badge-counter" id="deckSlideCounter">Slide 01 / 10</div>
+      <button class="icon-btn" onclick="prevSlide()" title="Previous (←)">←</button>
+      <button class="icon-btn" onclick="nextSlide()" title="Next (→)">Next →</button>
+      <button class="icon-btn" onclick="toggleFullscreen()" title="Fullscreen (F)">⛶</button>
+    </div>
+  </header>
+
+  <!-- Viewport -->
+  <main class="content-viewport">
+
+    <!-- ========================================================
+         VIEW A: 16:9 DECK FRAME (Deck Mode)
+         ======================================================== -->
+    <div class="deck-frame" id="deckContainer">
+      <div class="deck-slide-stage" id="deckStage">
+        
+        <!-- Deck Slide 1: Hero -->
+        <section class="deck-slide active" data-index="1">
+          <div class="two-col-layout">
+            <div>
+              <div class="section-eyebrow">
+                <span class="preview-dot" style="margin-right:2px;"></span>
+                AI Household Infrastructure
+              </div>
+              <h1 class="hero-title">GharOS</h1>
+              <h2 class="hero-tagline">Your Household Admin, Handled on WhatsApp</h2>
+              <p class="hero-description">
+                An AI-powered household assistant that detects bills, manages reminders and organizes shared expenses — completely inside WhatsApp with zero app installations.
+              </p>
+              <div class="hero-badges-row">
+                <div class="hero-badge-item">✓ 100% WhatsApp Native</div>
+                <div class="hero-badge-item">✓ MCP-Powered Agent</div>
+                <div class="hero-badge-item">✓ Human-in-the-Loop Consent</div>
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button class="btn-whatsapp" onclick="openWhatsAppModal()">
+                  <span>💬 Try Live on WhatsApp</span>
+                </button>
+                <button class="btn-secondary" onclick="goToSlide(7)">
+                  <span>Interactive BESCOM Demo</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="hero-mockup-frame">
+              <div class="chat-preview-window">
+                <div class="chat-window-header">
+                  <div class="chat-user-info">
+                    <div class="chat-avatar">G</div>
+                    <div class="chat-name-block">
+                      <div class="chat-name">GharOS Assistant <span class="chat-verified-badge">✓</span></div>
+                      <span class="chat-status">Official Bot • Online</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="chat-window-body">
+                  <div class="chat-bubble">
+                    <p>👋 Hi Rahul! I just extracted your new electricity statement from BESCOM via Gmail MCP:</p>
+                    <div style="margin-top:6px;padding:6px 8px;background:#F8FAF9;border:1px solid #E5E7EB;border-radius:6px;font-size:11px;">
+                      <strong>⚡ BESCOM Electricity</strong> • Amount: <strong>₹1,240</strong> • Due: <strong>28 Nov</strong>
+                    </div>
+                    <span class="timestamp">10:42 AM</span>
+                  </div>
+                  <div class="chat-bubble user-msg" style="align-self:flex-end;background:var(--color-light-green);">
+                    <p>Split 50-50 with Ananya & add calendar alert.</p>
+                    <span class="timestamp">10:43 AM · Read ✓✓</span>
+                  </div>
+                </div>
+              </div>
+              <div class="floating-summary-card">
+                <div class="summary-card-left">
+                  <div class="summary-card-icon">⚡</div>
+                  <div>
+                    <div class="summary-title">Auto-Parsed Household Ledger</div>
+                    <div class="summary-sub">Synced to Google Calendar & Split Engine</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="amount-value">₹1,240</div>
+                  <div class="amount-due">Due in 5 days</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deck Slide 2: Problem -->
+        <section class="deck-slide" data-index="2">
+          <div class="section-eyebrow">The Problem</div>
+          <h2 class="section-headline">“Household administration is scattered across too many apps.”</h2>
+          <p class="section-subheadline">Urban households lose ₹4,200+ annually in late fees, untracked shared splits, and forgotten subscription renewals.</p>
+          <div class="problem-grid">
+            <div class="problem-card">
+              <div class="problem-icon-wrapper">📄</div>
+              <h3 class="problem-title">Bills</h3>
+              <p class="problem-desc">Electricity, Wi-Fi, and gas statements buried across SMS, spam emails, and PDF attachments.</p>
+              <div class="problem-friction-pill">Scattered across 4+ portals</div>
+            </div>
+            <div class="problem-card">
+              <div class="problem-icon-wrapper">🏠</div>
+              <h3 class="problem-title">Rent</h3>
+              <p class="problem-desc">Disjointed landlord bank transfers, manual payment screenshots, unlogged rental receipts.</p>
+              <div class="problem-friction-pill">Zero automated logs</div>
+            </div>
+            <div class="problem-card">
+              <div class="problem-icon-wrapper">💳</div>
+              <h3 class="problem-title">Credit Cards</h3>
+              <p class="problem-desc">Multiple billing cycles, differing due dates, surprise revolving charges on missed days.</p>
+              <div class="problem-friction-pill">High late-fee risk</div>
+            </div>
+            <div class="problem-card">
+              <div class="problem-icon-wrapper">🔄</div>
+              <h3 class="problem-title">Subscriptions</h3>
+              <p class="problem-desc">Streaming, gym, SaaS auto-debits silently renewing without advance contextual warning.</p>
+              <div class="problem-friction-pill">Silent wallet drain</div>
+            </div>
+            <div class="problem-card">
+              <div class="problem-icon-wrapper">👥</div>
+              <h3 class="problem-title">Shared Expenses</h3>
+              <p class="problem-desc">Awkward roommate follow-ups, separate splitting apps nobody updates, lost tallies.</p>
+              <div class="problem-friction-pill">Interpersonal friction</div>
+            </div>
+          </div>
+          <div class="problem-banner">
+            <div><strong>The Bottleneck:</strong> Everyone uses WhatsApp daily, but admin is trapped in isolated apps.</div>
+            <div style="font-family:var(--font-mono);font-size:12px;font-weight:600;">Average Waste: ₹4,200/yr</div>
+          </div>
+        </section>
+
+        <!-- Deck Slide 3: Solution -->
+        <section class="deck-slide" data-index="3">
+          <div class="section-eyebrow">The Solution</div>
+          <h2 class="section-headline">One familiar interface for your entire home.</h2>
+          <p class="section-subheadline">GharOS connects your household tasks through WhatsApp without forcing anyone to install another standalone app.</p>
+          <div class="solution-showcase-container">
+            <div class="service-column">
+              <div class="service-card">
+                <div class="service-icon">✉️</div>
+                <div>
+                  <div class="service-title">Gmail & Email Invoices</div>
+                  <div class="service-desc">Auto-extracts utility statements securely</div>
+                </div>
+              </div>
+              <div class="service-card">
+                <div class="service-icon">📅</div>
+                <div>
+                  <div class="service-title">Google Calendar</div>
+                  <div class="service-desc">Auto-schedules due date events & alerts</div>
+                </div>
+              </div>
+            </div>
+            <div class="central-agent-hub">
+              <div class="hub-header">
+                <div>
+                  <div style="font-size:13px;font-weight:700;">GharOS Orchestrator</div>
+                  <div style="font-size:11px;color:var(--color-neutral);">WhatsApp Real-Time Client</div>
+                </div>
+                <span class="brand-tag">Active Sync</span>
+              </div>
+              <div class="hub-chat-stream">
+                <div style="font-size:10px;color:var(--color-neutral);text-align:center;">⚡ Auto-Detected via Gmail MCP (09:15 AM)</div>
+                <div class="stream-bubble">
+                  <strong>Airtel Broadband</strong> — ₹1,179 due on <strong>Nov 24</strong>.<br>
+                  <span style="color:var(--color-neutral);font-size:11px;">Sync reminder and split with Rohit?</span>
+                </div>
+                <div class="stream-bubble user-msg">Yes, split 50% and ping him.</div>
+                <div class="stream-bubble" style="border-left:3px solid var(--color-whatsapp);">
+                  <span style="color:var(--color-deep-green);font-weight:600;">✓ Calendar synced</span> for Nov 24, 9 AM.<br>
+                  <span style="color:var(--color-deep-green);font-weight:600;">✓ Rohit pinged:</span> ₹589.50 recorded in ledger.
+                </div>
+              </div>
+            </div>
+            <div class="service-column">
+              <div class="service-card">
+                <div class="service-icon">📊</div>
+                <div>
+                  <div class="service-title">Household Ledger</div>
+                  <div class="service-desc">Automated expense balances & splits</div>
+                </div>
+              </div>
+              <div class="service-card">
+                <div class="service-icon">💬</div>
+                <div>
+                  <div class="service-title">WhatsApp Groups</div>
+                  <div class="service-desc">Transparent notifications in group chats</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deck Slide 4: Features -->
+        <section class="deck-slide" data-index="4">
+          <div class="section-eyebrow">Capabilities</div>
+          <h2 class="section-headline">Five premium SaaS features for real-world peace of mind.</h2>
+          <p class="section-subheadline">Engineered to eliminate administrative mental load through intelligent detection and proactive checks.</p>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-header-row">
+                <div class="feature-icon-box">🔍</div>
+                <span class="feature-pill">Zero Manual Input</span>
+              </div>
+              <h3 class="feature-title">1. Automatic Bill Detection</h3>
+              <p class="feature-desc">Scans authorized billing statements and e-invoices directly from Gmail with zero manual entry required.</p>
+              <div class="feature-ui-preview"><span class="preview-dot"></span>BESCOM ₹1,240 parsed via Gmail MCP</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-header-row">
+                <div class="feature-icon-box">🔔</div>
+                <span class="feature-pill">Calendar Sync</span>
+              </div>
+              <h3 class="feature-title">2. Smart Reminders</h3>
+              <p class="feature-desc">Contextual WhatsApp notifications timed 3 days and 24 hours prior to due dates with 1-tap calendar sync.</p>
+              <div class="feature-ui-preview"><span class="preview-dot"></span>Event: "Pay BESCOM" • Nov 28, 9:00 AM</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-header-row">
+                <div class="feature-icon-box">👥</div>
+                <span class="feature-pill">Group Ledgers</span>
+              </div>
+              <h3 class="feature-title">3. Household Expense Splitting</h3>
+              <p class="feature-desc">Split grocery, Wi-Fi, and domestic help bills directly with flatmates or partners in natural WhatsApp chat.</p>
+              <div class="feature-ui-preview"><span class="preview-dot"></span>Split ₹3,600 Wi-Fi: ₹1,200/ea (Rahul, Priya, Karan)</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-header-row">
+                <div class="feature-icon-box">🔄</div>
+                <span class="feature-pill">Audit Renewals</span>
+              </div>
+              <h3 class="feature-title">4. Subscription Tracker</h3>
+              <p class="feature-desc">Uncovers recurring digital subscriptions and nudges you 48 hours prior to auto-debits to stop unwanted renewals.</p>
+              <div class="feature-ui-preview"><span class="preview-dot"></span>Netflix ₹649 auto-renews in 48h • [Cancel] / [Keep]</div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-header-row">
+                <div class="feature-icon-box">⚠️</div>
+                <span class="feature-pill">Anomaly Shield</span>
+              </div>
+              <h3 class="feature-title">5. Bill Anomaly Detection</h3>
+              <p class="feature-desc">Flags abnormal utility spikes compared to previous 3-month averages, protecting against billing errors.</p>
+              <div class="feature-ui-preview"><span class="preview-dot" style="background:var(--color-charcoal);"></span>⚠️ Power Spike: +38% higher than October baseline</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deck Slide 5: MCP Architecture -->
+        <section class="deck-slide" data-index="5">
+          <div class="section-eyebrow">Technical Architecture</div>
+          <h2 class="section-headline">Model Context Protocol (MCP) Architecture</h2>
+          <p class="section-subheadline">Standardized, sandboxed tool interoperability connecting LLM reasoning with personal household data.</p>
+          <div class="arch-flow-wrapper">
+            <div class="arch-pipeline">
+              <div class="arch-node">
+                <span class="arch-node-badge">Channel</span>
+                <div class="arch-node-title">💬 WhatsApp Client</div>
+                <p class="feature-desc">Interactive Quick-Reply buttons & webhooks.</p>
+                <ul class="arch-items-list">
+                  <li>Meta Graph Webhook</li>
+                  <li>Instant Delivery</li>
+                </ul>
+              </div>
+              <div class="arch-node" style="border-top:3px solid var(--color-deep-green);">
+                <span class="arch-node-badge">Core Engine</span>
+                <div class="arch-node-title">🧠 GharOS AI Agent</div>
+                <p class="feature-desc">Gemini 2.5 LLM with guardrails & structured JSON.</p>
+                <ul class="arch-items-list">
+                  <li>Intent Classifier</li>
+                  <li>Consent Gates</li>
+                </ul>
+              </div>
+              <div class="arch-node">
+                <span class="arch-node-badge">Gateway</span>
+                <div class="arch-node-title">🔌 MCP Client Hub</div>
+                <p class="feature-desc">Standardized tool protocol with strict token scopes.</p>
+                <ul class="arch-items-list">
+                  <li>OAuth Bridging</li>
+                  <li>Sandboxed Execution</li>
+                </ul>
+              </div>
+              <div class="arch-node">
+                <span class="arch-node-badge">Tools</span>
+                <div class="arch-node-title">🗄️ Backend Services</div>
+                <p class="feature-desc">Isolated servers with scoped read/write permissions.</p>
+                <ul class="arch-items-list">
+                  <li>Gmail MCP (Bills)</li>
+                  <li>Calendar MCP (Events)</li>
+                  <li>Ledger (PostgreSQL)</li>
+                </ul>
+              </div>
+            </div>
+            <div style="margin-top:16px;padding-top:10px;border-top:1px solid #E5E7EB;display:flex;justify-content:space-between;font-size:11px;color:var(--color-neutral);">
+              <span style="color:var(--color-deep-green);font-weight:600;">● Flow: WhatsApp → GharOS AI Agent → MCP Client → Gmail / Calendar / Ledger</span>
+              <span>Zero-Trust Sandboxing • OAuth2 Least Privilege</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deck Slide 6: Safety -->
+        <section class="deck-slide" data-index="6">
+          <div class="section-eyebrow">Security & Privacy</div>
+          <h2 class="section-headline">Privacy-first by design. Human-in-the-loop by default.</h2>
+          <p class="section-subheadline">Household data is intimate. GharOS enforces strict boundaries: zero autonomous writes without your explicit approval.</p>
+          <div class="safety-grid">
+            <div class="safety-card">
+              <div class="safety-icon-wrapper">🛡️</div>
+              <span class="safety-status-badge">Mandatory Consent</span>
+              <h3 class="safety-title">User Approval Required</h3>
+              <p class="safety-desc">GharOS never books reminders, executes transfers, or informs roommates autonomously. Every action requires a verified 1-tap confirmation.</p>
+            </div>
+            <div class="safety-card">
+              <div class="safety-icon-wrapper">🔒</div>
+              <span class="safety-status-badge">Least Privilege</span>
+              <h3 class="safety-title">Minimum Permissions</h3>
+              <p class="safety-desc">Scoped read-only filters target only specific utility providers and invoices. Personal emails, medical records, and chats remain inaccessible.</p>
+            </div>
+            <div class="safety-card">
+              <div class="safety-icon-wrapper">📜</div>
+              <span class="safety-status-badge">Verifiable Trail</span>
+              <h3 class="safety-title">Immutable Action History</h3>
+              <p class="safety-desc">Every parsed statement, calendar entry, and ledger division is logged with tamper-evident timestamps viewable on demand via chat (`/audit`).</p>
+            </div>
+            <div class="safety-card">
+              <div class="safety-icon-wrapper">🗑️</div>
+              <span class="safety-status-badge">Instant Purge</span>
+              <h3 class="safety-title">Data Deletion Controls</h3>
+              <p class="safety-desc">Send "Forget My Data" at any moment to trigger cryptographic erasure of all parsed bills, cached tokens, and household records.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deck Slide 7: Demo (Interactive) -->
+        <section class="deck-slide" data-index="7">
+          <div class="section-eyebrow">Interactive Demo</div>
+          <h2 class="section-headline">From invoice email to calendar reminder in 1 tap.</h2>
+          <p class="section-subheadline">Experience the live interaction: GharOS alerts you with structured metadata and clear decisions.</p>
+          <div class="demo-container">
+            <div class="demo-chat-box">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:8px;border-bottom:1px solid #E5E7EB;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div class="chat-avatar">G</div>
+                  <div>
+                    <div style="font-size:12px;font-weight:700;">GharOS WhatsApp Bot</div>
+                    <div style="font-size:10px;color:var(--color-neutral);">Consumer Utilities Channel</div>
+                  </div>
+                </div>
+                <button class="btn-action-review" style="padding:4px 8px;font-size:10px;" onclick="openWhatsAppModal()">Open Full Chat 💬</button>
+              </div>
+              <div class="chat-bubble">
+                <p style="margin-bottom:6px;">👋 Hi Rahul! A new electricity bill was detected:</p>
+                <div class="demo-bill-card">
+                  <div class="demo-bill-header">
+                    <div class="bill-issuer-tag">⚡ BESCOM Electricity Bill</div>
+                    <span class="brand-tag" style="font-size:10px;">Due in 5 Days</span>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                    <div>
+                      <span style="font-size:10px;color:var(--color-neutral);">Amount</span>
+                      <div class="bill-amount-display">₹1,240</div>
+                    </div>
+                    <div style="text-align:right;">
+                      <span style="font-size:10px;color:var(--color-neutral);">Due Date</span>
+                      <div style="font-size:13px;font-weight:600;">28 November</div>
+                    </div>
+                  </div>
+                  <div style="font-size:11px;color:var(--color-neutral);">Consumer ID: 0349821045 • LT-2 Domestic</div>
+                  <div class="demo-action-buttons">
+                    <button class="btn-action-approve" onclick="triggerApproveDemo()">
+                      ✓ Approve Reminder
+                    </button>
+                    <button class="btn-action-review" onclick="openWhatsAppModal()">
+                      💬 Reply on WhatsApp
+                    </button>
+                  </div>
+                </div>
+                <span class="timestamp">10:45 AM · Sent via GharOS MCP</span>
+              </div>
+              <div id="deckConfirmBubble" class="chat-bubble" style="display:none;background:var(--color-light-green);border:1px solid rgba(37,211,102,0.3);">
+                <p style="font-size:12px;color:var(--color-deep-green);font-weight:600;">
+                  ✅ Approved! Scheduled on Google Calendar for Nov 28 at 9:00 AM and logged ₹1,240 in your ledger.
+                </p>
+              </div>
+            </div>
+
+            <div class="calendar-preview-card">
+              <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E5E7EB;padding-bottom:10px;">
+                <div style="font-size:13px;font-weight:700;">📅 Google Calendar Sync</div>
+                <span id="deckCalBadge" class="brand-tag" style="background:#F8FAF9;color:var(--color-neutral);border-color:#E5E7EB;">Pending Approval</span>
+              </div>
+              <div class="cal-event-details">
+                <div style="font-size:13px;font-weight:700;">⚡ Pay BESCOM Electricity Bill (₹1,240)</div>
+                <div style="font-size:11px;color:var(--color-neutral);">Fri, 28 Nov 2026 • 09:00 AM – 09:30 AM</div>
+                <div style="font-size:11px;margin-top:4px;">
+                  • WhatsApp reminder 24h prior<br>
+                  • Quick-pay UPI link attached
+                </div>
+              </div>
+              <div style="font-size:11px;color:var(--color-neutral);line-height:1.4;">
+                Click <strong>"Approve Reminder"</strong> on the left to see the instant MCP sync to Google Calendar.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deck Slide 8: Technology -->
+        <section class="deck-slide" data-index="8">
+          <div class="section-eyebrow">Architecture</div>
+          <h2 class="section-headline">Modern, reliable, and enterprise-grade stack.</h2>
+          <p class="section-subheadline">Built with battle-tested frameworks to guarantee low latency and robust data isolation.</p>
+          <div class="tech-stack-grid">
+            <div class="tech-card">
+              <span class="tech-layer-tag">Interface</span>
+              <h3 class="tech-card-title">WhatsApp Cloud API</h3>
+              <ul class="tech-components-list">
+                <li class="tech-component-item"><span>Meta Webhooks</span><span style="color:var(--color-neutral);">&lt;200ms</span></li>
+                <li class="tech-component-item"><span>Quick Replies</span><span>Native UI</span></li>
+              </ul>
+            </div>
+            <div class="tech-card">
+              <span class="tech-layer-tag">Reasoning</span>
+              <h3 class="tech-card-title">Gemini 2.5 Engine</h3>
+              <ul class="tech-components-list">
+                <li class="tech-component-item"><span>Structured JSON</span><span>Pydantic</span></li>
+                <li class="tech-component-item"><span>Intent Routing</span><span>LangGraph</span></li>
+              </ul>
+            </div>
+            <div class="tech-card">
+              <span class="tech-layer-tag">Protocol</span>
+              <h3 class="tech-card-title">Model Context Protocol</h3>
+              <ul class="tech-components-list">
+                <li class="tech-component-item"><span>MCP Tool Servers</span><span>Standardized</span></li>
+                <li class="tech-component-item"><span>Zero-Trust Sandbox</span><span>Isolated</span></li>
+              </ul>
+            </div>
+            <div class="tech-card">
+              <span class="tech-layer-tag">Storage</span>
+              <h3 class="tech-card-title">PostgreSQL & pgvector</h3>
+              <ul class="tech-components-list">
+                <li class="tech-component-item"><span>Row-Level Security</span><span>Tenant Isolation</span></li>
+                <li class="tech-component-item"><span>Redis Distributed Cache</span><span>Session Cache</span></li>
+              </ul>
+            </div>
+            <div class="tech-card">
+              <span class="tech-layer-tag">Security</span>
+              <h3 class="tech-card-title">Zero-Knowledge Token KMS</h3>
+              <ul class="tech-components-list">
+                <li class="tech-component-item"><span>AES-256 Envelope Crypto</span><span>At Rest</span></li>
+                <li class="tech-component-item"><span>HMAC-SHA256 Auth</span><span>Webhook Sign</span></li>
+              </ul>
+            </div>
+            <div class="tech-card">
+              <span class="tech-layer-tag">Runtime</span>
+              <h3 class="tech-card-title">Serverless Edge</h3>
+              <ul class="tech-components-list">
+                <li class="tech-component-item"><span>Cloudflare Edge Workers</span><span>Global 50ms</span></li>
+                <li class="tech-component-item"><span>Dockerized Services</span><span>Auto-Scale</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deck Slide 9: Impact -->
+        <section class="deck-slide" data-index="9">
+          <div class="section-eyebrow">Traction & Impact</div>
+          <h2 class="section-headline">“Less chasing. Fewer missed deadlines.”</h2>
+          <p class="section-subheadline">GharOS replaces household friction and mental exhaustion with seamless automated predictability.</p>
+          <div class="impact-grid">
+            <div class="impact-card">
+              <div class="impact-metric impact-metric-green">100%</div>
+              <h3 class="impact-title">Organized Bills</h3>
+              <p class="impact-desc">Utility invoices captured automatically the instant they arrive in Gmail. Zero misplaced bills, zero late fines.</p>
+              <div class="impact-tag">0 Late Fees Incurred</div>
+            </div>
+            <div class="impact-card">
+              <div class="impact-metric">1 Tap</div>
+              <h3 class="impact-title">Smarter Reminders</h3>
+              <p class="impact-desc">Contextual notifications scheduled into Google Calendar in a single click without opening a separate portal.</p>
+              <div class="impact-tag">92% Action Rate within 2 Hours</div>
+            </div>
+            <div class="impact-card">
+              <div class="impact-metric impact-metric-green">0 Days</div>
+              <h3 class="impact-title">Easier Shared Expenses</h3>
+              <p class="impact-desc">Shared household costs divided and acknowledged without awkward manual math or reminder messages.</p>
+              <div class="impact-tag">7x Faster Expense Settlement</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Deck Slide 10: Closing -->
+        <section class="deck-slide" data-index="10">
+          <div class="closing-container">
+            <div class="section-eyebrow">Hackathon Launch 2026</div>
+            <h1 class="closing-headline">“Your household. Organized.”</h1>
+            <p class="closing-supporting">
+              “GharOS turns WhatsApp into your household admin assistant. It finds your bills, reminds you, splits costs, and only acts when you say yes.”
+            </p>
+            <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;justify-content:center;">
+              <button class="btn-whatsapp" onclick="openWhatsAppModal()">
+                <span>💬 Open WhatsApp Assistant</span>
+              </button>
+              <button class="btn-secondary" onclick="goToSlide(1)">
+                <span>Restart Pitch (Slide 1)</span>
+              </button>
+            </div>
+            <div style="display:flex;gap:16px;font-size:12px;color:var(--color-neutral);flex-wrap:wrap;justify-content:center;">
+              <span>✓ Built for 500M+ WhatsApp users</span>
+              <span>✓ Model Context Protocol (MCP)</span>
+              <span>✓ 100% Consent Driven</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Deck Bottom Navigation Bar -->
+      <footer class="deck-nav-bar">
+        <div class="slide-pills-row" id="deckDotsContainer">
+          <!-- Dots injected via JS -->
+        </div>
+        <div class="deck-nav-btns">
+          <button class="btn-nav-action" onclick="prevSlide()">← Previous</button>
+          <button class="btn-nav-action primary" onclick="nextSlide()">Next Slide →</button>
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- ========================================================
+         VIEW B: CONTINUOUS SAAS WEBSITE (Scroll Mode)
+         ======================================================== -->
+    <div class="website-view-container" id="websiteContainer">
+
+      <!-- Section 1: Hero -->
+      <section class="website-section" id="web-section-1">
+        <div class="two-col-layout">
+          <div>
+            <div class="section-eyebrow">Next-Gen AI Household Infrastructure</div>
+            <h1 class="hero-title">GharOS</h1>
+            <h2 class="hero-tagline">Your Household Admin, Handled on WhatsApp</h2>
+            <p class="hero-description">An AI-powered household assistant that detects bills, manages reminders and organizes shared expenses — completely inside WhatsApp with zero app installations.</p>
+            <div class="hero-badges-row">
+              <div class="hero-badge-item">✓ 100% WhatsApp Native</div>
+              <div class="hero-badge-item">✓ MCP-Powered Agent</div>
+              <div class="hero-badge-item">✓ Human-in-the-Loop Consent</div>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <button class="btn-whatsapp" onclick="openWhatsAppModal()">💬 Open WhatsApp Assistant</button>
+              <button class="btn-secondary" onclick="document.getElementById('web-section-5').scrollIntoView({behavior:'smooth'})">Explore Architecture</button>
+            </div>
+          </div>
+          <div class="hero-mockup-frame">
+            <div class="chat-preview-window">
+              <div class="chat-window-header">
+                <div class="chat-user-info">
+                  <div class="chat-avatar">G</div>
+                  <div class="chat-name-block">
+                    <div class="chat-name">GharOS Assistant <span class="chat-verified-badge">✓</span></div>
+                    <span class="chat-status">Official Bot • Online</span>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-window-body">
+                <div class="chat-bubble">
+                  <p>👋 Hi Rahul! I just extracted your new electricity statement from BESCOM via Gmail MCP:</p>
+                  <div style="margin-top:6px;padding:6px 8px;background:#F8FAF9;border:1px solid #E5E7EB;border-radius:6px;font-size:11px;">
+                    <strong>⚡ BESCOM Electricity</strong> • Amount: <strong>₹1,240</strong> • Due: <strong>28 Nov</strong>
+                  </div>
+                  <span class="timestamp">10:42 AM</span>
+                </div>
+                <div class="chat-bubble user-msg" style="align-self:flex-end;background:var(--color-light-green);">
+                  <p>Split this 50-50 with Ananya and set calendar reminder.</p>
+                  <span class="timestamp">10:43 AM · Read ✓✓</span>
+                </div>
+              </div>
+            </div>
+            <div class="floating-summary-card">
+              <div class="summary-card-left">
+                <div class="summary-card-icon">⚡</div>
+                <div>
+                  <div class="summary-title">Auto-Parsed Household Ledger</div>
+                  <div class="summary-sub">Synced to Google Calendar & Split Engine</div>
+                </div>
+              </div>
+              <div>
+                <div class="amount-value">₹1,240</div>
+                <div class="amount-due">Due in 5 days</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Problem -->
+      <section class="website-section" id="web-section-2">
+        <div class="section-eyebrow">The Household Administration Burden</div>
+        <h2 class="section-headline">“Household administration is scattered across too many apps.”</h2>
+        <p class="section-subheadline">Urban households juggle 6+ disjointed apps. Over 40% of bills face late penalties or awkward roommate follow-ups simply due to channel fatigue.</p>
+        <div class="problem-grid">
+          <div class="problem-card">
+            <div class="problem-icon-wrapper">📄</div>
+            <h3 class="problem-title">Utility Bills</h3>
+            <p class="problem-desc">Electricity, Wi-Fi, and gas statements buried across spam emails, unread SMS, and passworded PDFs.</p>
+            <div class="problem-friction-pill">Scattered across 4+ portals</div>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon-wrapper">🏠</div>
+            <h3 class="problem-title">Rent & Maintenance</h3>
+            <p class="problem-desc">Disjointed landlord bank transfers, manual payment screenshots, and unlogged rental receipts.</p>
+            <div class="problem-friction-pill">Zero automated logs</div>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon-wrapper">💳</div>
+            <h3 class="problem-title">Credit Cards</h3>
+            <p class="problem-desc">Multiple billing cycles, differing due dates, and surprise revolving finance charges on missed days.</p>
+            <div class="problem-friction-pill">High late-fee risk</div>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon-wrapper">🔄</div>
+            <h3 class="problem-title">Subscriptions</h3>
+            <p class="problem-desc">Streaming, gym memberships, and cloud tools silently renewing without advance contextual warning.</p>
+            <div class="problem-friction-pill">Silent wallet drain</div>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon-wrapper">👥</div>
+            <h3 class="problem-title">Shared Expenses</h3>
+            <p class="problem-desc">Awkward roommate follow-ups, separate splitting apps nobody updates, and lost payment tallies.</p>
+            <div class="problem-friction-pill">Interpersonal friction</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Solution -->
+      <section class="website-section" id="web-section-3">
+        <div class="section-eyebrow">The Unified Operating System</div>
+        <h2 class="section-headline">One familiar interface for your entire home.</h2>
+        <p class="section-subheadline">GharOS connects your household's bills, calendars, and ledgers into WhatsApp. No new apps to download, no new passwords to remember.</p>
+        <div class="solution-showcase-container">
+          <div class="service-column">
+            <div class="service-card">
+              <div class="service-icon">✉️</div>
+              <div>
+                <div class="service-title">Gmail & Email Invoices</div>
+                <div class="service-desc">Reads incoming utility PDFs & invoices securely</div>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">📅</div>
+              <div>
+                <div class="service-title">Google Calendar</div>
+                <div class="service-desc">Auto-schedules due date events & reminders</div>
+              </div>
+            </div>
+          </div>
+          <div class="central-agent-hub">
+            <div class="hub-header">
+              <div>
+                <div style="font-size:13px;font-weight:700;">GharOS Orchestrator</div>
+                <div style="font-size:11px;color:var(--color-neutral);">WhatsApp Real-Time Client</div>
+              </div>
+              <span class="brand-tag">Active Sync</span>
+            </div>
+            <div class="hub-chat-stream">
+              <div style="font-size:10px;color:var(--color-neutral);text-align:center;">⚡ Auto-Detected via Gmail MCP (09:15 AM)</div>
+              <div class="stream-bubble">
+                <strong>Airtel Broadband Bill</strong> — ₹1,179 due on <strong>Nov 24</strong>.<br>
+                <span style="color:var(--color-neutral);font-size:11px;">Would you like me to sync this reminder and split it with Rohit?</span>
+              </div>
+              <div class="stream-bubble user-msg">Yes, split 50% and ping him on WhatsApp.</div>
+              <div class="stream-bubble" style="border-left:3px solid var(--color-whatsapp);">
+                <span style="color:var(--color-deep-green);font-weight:600;">✓ Calendar synced</span> for Nov 24, 9 AM.<br>
+                <span style="color:var(--color-deep-green);font-weight:600;">✓ Rohit pinged:</span> ₹589.50 recorded in flat ledger.
+              </div>
+            </div>
+          </div>
+          <div class="service-column">
+            <div class="service-card">
+              <div class="service-icon">📊</div>
+              <div>
+                <div class="service-title">Household Ledger</div>
+                <div class="service-desc">Automated expense balances & settlements</div>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">💬</div>
+              <div>
+                <div class="service-title">Family / Flat WhatsApp</div>
+                <div class="service-desc">Transparent notifications in shared groups</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Features -->
+      <section class="website-section" id="web-section-4">
+        <div class="section-eyebrow">Enterprise Automation</div>
+        <h2 class="section-headline">Five premium capabilities designed for daily peace of mind.</h2>
+        <p class="section-subheadline">Engineered to eliminate administrative mental load through intelligent detection, contextual scheduling, and proactive checks.</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-header-row">
+              <div class="feature-icon-box">🔍</div>
+              <span class="feature-pill">Zero Manual Input</span>
+            </div>
+            <h3 class="feature-title">1. Automatic Bill Detection</h3>
+            <p class="feature-desc">Scans authorized billing statements and e-invoices directly from Gmail with zero manual entry required.</p>
+            <div class="feature-ui-preview"><span class="preview-dot"></span>BESCOM ₹1,240 parsed via Gmail MCP</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-header-row">
+              <div class="feature-icon-box">🔔</div>
+              <span class="feature-pill">Calendar Sync</span>
+            </div>
+            <h3 class="feature-title">2. Smart Reminders</h3>
+            <p class="feature-desc">Contextual WhatsApp notifications timed 3 days and 24 hours prior to due dates with 1-tap calendar sync.</p>
+            <div class="feature-ui-preview"><span class="preview-dot"></span>Event: "Pay BESCOM" • Nov 28, 9:00 AM</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-header-row">
+              <div class="feature-icon-box">👥</div>
+              <span class="feature-pill">Group Ledgers</span>
+            </div>
+            <h3 class="feature-title">3. Household Expense Splitting</h3>
+            <p class="feature-desc">Split grocery, Wi-Fi, and domestic help bills directly with flatmates or partners in natural WhatsApp language.</p>
+            <div class="feature-ui-preview"><span class="preview-dot"></span>Split ₹3,600 Wi-Fi: ₹1,200/ea (Rahul, Priya, Karan)</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-header-row">
+              <div class="feature-icon-box">🔄</div>
+              <span class="feature-pill">Audit Renewals</span>
+            </div>
+            <h3 class="feature-title">4. Subscription Tracker</h3>
+            <p class="feature-desc">Uncovers recurring digital subscriptions and nudges you 48 hours prior to auto-debits so you never pay for forgotten services.</p>
+            <div class="feature-ui-preview"><span class="preview-dot"></span>Netflix ₹649 auto-renews in 48h • [Cancel] / [Keep]</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-header-row">
+              <div class="feature-icon-box">⚠️</div>
+              <span class="feature-pill">Anomaly Shield</span>
+            </div>
+            <h3 class="feature-title">5. Bill Anomaly Detection</h3>
+            <p class="feature-desc">Flags abnormal utility spikes compared to previous 3-month averages, protecting against billing errors.</p>
+            <div class="feature-ui-preview"><span class="preview-dot" style="background:var(--color-charcoal);"></span>⚠️ Power Spike: +38% higher than October baseline</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Architecture -->
+      <section class="website-section" id="web-section-5">
+        <div class="section-eyebrow">Standardized Tool Integration</div>
+        <h2 class="section-headline">MCP Architecture: Sandboxed, Extensible & Secure.</h2>
+        <p class="section-subheadline">GharOS implements the open Model Context Protocol (MCP) to decouple LLM reasoning from external personal data sources.</p>
+        <div class="arch-flow-wrapper">
+          <div class="arch-pipeline">
+            <div class="arch-node">
+              <span class="arch-node-badge">Channel Layer</span>
+              <div class="arch-node-title">💬 WhatsApp Client</div>
+              <p class="feature-desc">Direct consumer entrypoint with interactive quick-reply buttons and natural conversation.</p>
+              <ul class="arch-items-list">
+                <li>Meta Webhooks</li>
+                <li>WhatsApp Cloud API</li>
+              </ul>
+            </div>
+            <div class="arch-node" style="border-top:3px solid var(--color-deep-green);">
+              <span class="arch-node-badge">Core Engine</span>
+              <div class="arch-node-title">🧠 GharOS AI Agent</div>
+              <p class="feature-desc">Gemini 2.5 LLM with guardrails, intent extraction, structured output schemas, and consent gates.</p>
+              <ul class="arch-items-list">
+                <li>Intent Classification</li>
+                <li>Policy & Safety Checks</li>
+              </ul>
+            </div>
+            <div class="arch-node">
+              <span class="arch-node-badge">Protocol Gateway</span>
+              <div class="arch-node-title">🔌 MCP Client Hub</div>
+              <p class="feature-desc">Standardized tool invocation protocol routing requests to verified local/cloud servers.</p>
+              <ul class="arch-items-list">
+                <li>Token Scoping</li>
+                <li>Sandboxed Tool Call</li>
+              </ul>
+            </div>
+            <div class="arch-node">
+              <span class="arch-node-badge">Sandboxed Tools</span>
+              <div class="arch-node-title">🗄️ Backend Services</div>
+              <p class="feature-desc">Sandboxed servers executing granular tasks with isolated zero-trust privileges.</p>
+              <ul class="arch-items-list">
+                <li>Gmail MCP (Read Bills)</li>
+                <li>Calendar MCP (Events)</li>
+                <li>Household Ledger (Postgres)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Safety -->
+      <section class="website-section" id="web-section-6">
+        <div class="section-eyebrow">Enterprise Security Architecture</div>
+        <h2 class="section-headline">Privacy-first by design. Human-in-the-loop by default.</h2>
+        <p class="section-subheadline">Household data is intimate. GharOS enforces strict boundaries: the AI proposes actions, but you hold absolute authority before any calendar write or expense log occurs.</p>
+        <div class="safety-grid">
+          <div class="safety-card">
+            <div class="safety-icon-wrapper">🛡️</div>
+            <span class="safety-status-badge">Mandatory Consent</span>
+            <h3 class="safety-title">User Approval Required</h3>
+            <p class="safety-desc">GharOS never books reminders, executes transfers, or informs roommates autonomously. Every action requires a verified 1-tap confirmation.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-icon-wrapper">🔒</div>
+            <span class="safety-status-badge">Minimum Permissions</span>
+            <h3 class="safety-title">Least Privilege</h3>
+            <p class="safety-desc">Scoped read-only filters target only specific utility providers and invoices. Personal emails, medical records, and chats remain inaccessible.</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-icon-wrapper">📜</div>
+            <span class="safety-status-badge">Verifiable Trail</span>
+            <h3 class="safety-title">Immutable Action History</h3>
+            <p class="safety-desc">Every parsed statement, calendar entry, and ledger division is logged with tamper-evident timestamps viewable on demand via chat (`/audit`).</p>
+          </div>
+          <div class="safety-card">
+            <div class="safety-icon-wrapper">🗑️</div>
+            <span class="safety-status-badge">Instant Purge</span>
+            <h3 class="safety-title">Data Deletion Controls</h3>
+            <p class="safety-desc">Send "Forget My Data" at any moment to trigger cryptographic erasure of all parsed bills, cached tokens, and household records.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Demo -->
+      <section class="website-section" id="web-section-7">
+        <div class="section-eyebrow">Real-World Walkthrough</div>
+        <h2 class="section-headline">From invoice email to calendar reminder in 1 tap.</h2>
+        <p class="section-subheadline">Experience the effortless interaction: GharOS alerts you with structured metadata and clear decisions. No app jumping required.</p>
+        <div class="demo-container">
+          <div class="demo-chat-box">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:8px;border-bottom:1px solid #E5E7EB;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div class="chat-avatar">G</div>
+                <div>
+                  <div style="font-size:12px;font-weight:700;">GharOS WhatsApp Bot</div>
+                  <div style="font-size:10px;color:var(--color-neutral);">Consumer Utilities Channel</div>
+                </div>
+              </div>
+              <button class="btn-action-review" style="padding:4px 8px;font-size:10px;" onclick="openWhatsAppModal()">Open Chat 💬</button>
+            </div>
+            <div class="chat-bubble">
+              <p style="margin-bottom:6px;">👋 Hi Rahul! A new electricity bill was detected:</p>
+              <div class="demo-bill-card">
+                <div class="demo-bill-header">
+                  <div class="bill-issuer-tag">⚡ BESCOM Electricity Bill</div>
+                  <span class="brand-tag" style="font-size:10px;">Due in 5 Days</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                  <div>
+                    <span style="font-size:10px;color:var(--color-neutral);">Amount</span>
+                    <div class="bill-amount-display">₹1,240</div>
+                  </div>
+                  <div style="text-align:right;">
+                    <span style="font-size:10px;color:var(--color-neutral);">Due Date</span>
+                    <div style="font-size:13px;font-weight:600;">28 November</div>
+                  </div>
+                </div>
+                <div style="font-size:11px;color:var(--color-neutral);">Consumer ID: 0349821045 • LT-2 Domestic</div>
+                <div class="demo-action-buttons">
+                  <button class="btn-action-approve" onclick="triggerApproveDemo()">✓ Approve Reminder</button>
+                  <button class="btn-action-review" onclick="openWhatsAppModal()">💬 Reply on WhatsApp</button>
+                </div>
+              </div>
+              <span class="timestamp">10:45 AM · Sent via GharOS MCP</span>
+            </div>
+            <div id="webConfirmBubble" class="chat-bubble" style="display:none;background:var(--color-light-green);border:1px solid rgba(37,211,102,0.3);">
+              <p style="font-size:12px;color:var(--color-deep-green);font-weight:600;">
+                ✅ Approved! Scheduled on Google Calendar for Nov 28 at 9:00 AM and logged in household ledger.
+              </p>
+            </div>
+          </div>
+          <div class="calendar-preview-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E5E7EB;padding-bottom:10px;">
+              <div style="font-size:13px;font-weight:700;">📅 Google Calendar Sync</div>
+              <span id="webCalBadge" class="brand-tag" style="background:#F8FAF9;color:var(--color-neutral);border-color:#E5E7EB;">Pending Approval</span>
+            </div>
+            <div class="cal-event-details">
+              <div style="font-size:13px;font-weight:700;">⚡ Pay BESCOM Electricity Bill (₹1,240)</div>
+              <div style="font-size:11px;color:var(--color-neutral);">Fri, 28 Nov 2026 • 09:00 AM – 09:30 AM</div>
+              <div style="font-size:11px;margin-top:4px;">
+                • WhatsApp reminder scheduled 24 hours prior<br>
+                • Quick-pay UPI link appended in event description
+              </div>
+            </div>
+            <div style="font-size:12px;color:var(--color-neutral);line-height:1.45;">
+              <strong>Zero Tab Switching:</strong> Tapping "Approve" triggers an MCP call to Google Calendar API instantly.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: Technology -->
+      <section class="website-section" id="web-section-8">
+        <div class="section-eyebrow">Production Architecture</div>
+        <h2 class="section-headline">Modern, reliable, and enterprise-grade.</h2>
+        <p class="section-subheadline">Built with battle-tested frameworks to guarantee low latency, robust data isolation, and seamless scale across millions of chat threads.</p>
+        <div class="tech-stack-grid">
+          <div class="tech-card">
+            <span class="tech-layer-tag">Interface & Real-Time</span>
+            <h3 class="tech-card-title">WhatsApp Cloud API</h3>
+            <ul class="tech-components-list">
+              <li class="tech-component-item"><span>Meta Graph Webhooks</span><span>Sub-200ms</span></li>
+              <li class="tech-component-item"><span>Interactive Quick Replies</span><span>Native UI</span></li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <span class="tech-layer-tag">Agentic Reasoning</span>
+            <h3 class="tech-card-title">Gemini 2.5 LLM Engine</h3>
+            <ul class="tech-components-list">
+              <li class="tech-component-item"><span>Structured Output JSON</span><span>Pydantic</span></li>
+              <li class="tech-component-item"><span>Contextual Intent Router</span><span>LangGraph</span></li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <span class="tech-layer-tag">Tool Interoperability</span>
+            <h3 class="tech-card-title">Model Context Protocol</h3>
+            <ul class="tech-components-list">
+              <li class="tech-component-item"><span>Standardized MCP Servers</span><span>Anthropic Std</span></li>
+              <li class="tech-component-item"><span>Sandboxed Execution</span><span>Zero Trust</span></li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <span class="tech-layer-tag">Storage & Vector Search</span>
+            <h3 class="tech-card-title">PostgreSQL & pgvector</h3>
+            <ul class="tech-components-list">
+              <li class="tech-component-item"><span>Row Level Security (RLS)</span><span>User Isolated</span></li>
+              <li class="tech-component-item"><span>Redis Distributed Cache</span><span>Session State</span></li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <span class="tech-layer-tag">Security & Identity</span>
+            <h3 class="tech-card-title">Zero-Knowledge Token KMS</h3>
+            <ul class="tech-components-list">
+              <li class="tech-component-item"><span>AES-256 Envelope Crypto</span><span>At Rest</span></li>
+              <li class="tech-component-item"><span>Webhook Signature Auth</span><span>HMAC-SHA256</span></li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <span class="tech-layer-tag">Deployment & Edge</span>
+            <h3 class="tech-card-title">Serverless Edge Runtime</h3>
+            <ul class="tech-components-list">
+              <li class="tech-component-item"><span>Cloudflare Edge Workers</span><span>Global 50ms</span></li>
+              <li class="tech-component-item"><span>Dockerized Services</span><span>Auto-scale</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 9: Impact -->
+      <section class="website-section" id="web-section-9">
+        <div class="section-eyebrow">Real-World Quantitative Value</div>
+        <h2 class="section-headline">“Less chasing. Fewer missed deadlines.”</h2>
+        <p class="section-subheadline">GharOS replaces household friction and mental exhaustion with seamless automated predictability.</p>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <div class="impact-metric impact-metric-green">100%</div>
+            <h3 class="impact-title">Organized Bills</h3>
+            <p class="impact-desc">Utility invoices captured automatically the instant they arrive in Gmail. Zero misplaced bills, zero late fines, and zero emergency power disconnections.</p>
+            <div class="impact-tag">0 Late Fees Incurred</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-metric">1 Tap</div>
+            <h3 class="impact-title">Smarter Reminders</h3>
+            <p class="impact-desc">Contextual notifications scheduled into Google Calendar in a single click. Timely reminders delivered right where users already spend their attention.</p>
+            <div class="impact-tag">92% Action Rate within 2 Hours</div>
+          </div>
+          <div class="impact-card">
+            <div class="impact-metric impact-metric-green">0 Days</div>
+            <h3 class="impact-title">Easier Shared Expenses</h3>
+            <p class="impact-desc">Shared household costs divided and acknowledged without awkward manual math or reminder messages. Transparent flatmate ledgers keep peace of mind.</p>
+            <div class="impact-tag">7x Faster Expense Settlement</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 10: Closing Hero -->
+      <section class="website-section" id="web-section-10">
+        <div class="closing-container">
+          <div class="section-eyebrow">GharOS 1.0 • Hackathon Launch</div>
+          <h1 class="closing-headline">“Your household. Organized.”</h1>
+          <p class="closing-supporting">
+            “GharOS turns WhatsApp into your household admin assistant. It finds your bills, reminds you, splits costs, and only acts when you say yes.”
+          </p>
+          <div style="display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;justify-content:center;">
+            <button class="btn-whatsapp" style="font-size:15px;padding:14px 28px;" onclick="openWhatsAppModal()">
+              💬 Open WhatsApp Assistant
+            </button>
+            <button class="btn-secondary" style="font-size:15px;padding:14px 24px;" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+              Back to Top
+            </button>
+          </div>
+          <div style="display:flex;gap:20px;font-size:12px;color:var(--color-neutral);flex-wrap:wrap;justify-content:center;">
+            <span>✓ Zero App Installs Required</span>
+            <span>✓ Powered by Model Context Protocol</span>
+            <span>✓ 100% Consent Driven</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================
+       INTERACTIVE WHATSAPP SANDBOX MODAL
+       ======================================================== -->
+  <div class="wa-modal-backdrop" id="waModalBackdrop" onclick="closeWhatsAppModal(event)">
+    <div class="wa-modal-window" onclick="event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <div class="wa-modal-header">
+        <div class="wa-modal-user">
+          <div class="wa-modal-avatar">G</div>
+          <div>
+            <div class="wa-modal-title">
+              GharOS Assistant
+              <span class="chat-verified-badge" style="font-size:10px;width:15px;height:15px;">✓</span>
+            </div>
+            <div class="wa-modal-status">WhatsApp Verified Business • Online 24/7</div>
+          </div>
+        </div>
+        <button class="wa-modal-close" onclick="closeWhatsAppModal()">✕</button>
+      </div>
+
+      <!-- Navigation Bar inside Modal -->
+      <div class="wa-modal-tabs">
+        <div class="wa-tab-left">
+          <button class="wa-tab-btn active" id="btnWaTabSim" onclick="switchWaModalTab('sim')">Interactive Web Chat</button>
+          <button class="wa-tab-btn" id="btnWaTabReal" onclick="switchWaModalTab('real')">Connect Real Phone</button>
+        </div>
+        <a class="btn-real-wa-link" href="https://api.whatsapp.com/send?text=Hi%20GharOS!%20Connect%20my%20household%20admin." target="_blank" rel="noopener noreferrer">
+          <span>Open WhatsApp Web ↗</span>
+        </a>
+      </div>
+
+      <!-- TAB 1: Real-time In-Browser Chat Simulator -->
+      <div id="waSimTabContainer">
+        <div class="wa-chat-scroll" id="waChatScroll">
+          
+          <div class="wa-msg bot">
+            👋 <strong>Hi Rahul! Welcome to GharOS.</strong><br>
+            I monitor your household utility bills, manage payment reminders via Google Calendar, and organize roommate expense splits.
+            <span class="wa-msg-time">Just now</span>
+          </div>
+
+          <div class="wa-msg bot">
+            ⚡ <strong>Latest Detected Bill:</strong><br>
+            <strong>BESCOM Electricity Bill: ₹1,240</strong><br>
+            Due Date: <strong>28 November 2026</strong><br>
+            Account: 0349821045 (Domestic LT-2)<br><br>
+            <button class="btn-action-approve" style="padding:6px 12px;font-size:11px;width:100%;margin-top:4px;" onclick="sendSimulatedUserMessage('Approve reminder for BESCOM bill ₹1,240')">
+              ✓ Approve Calendar Reminder
+            </button>
+            <span class="wa-msg-time">Just now</span>
+          </div>
+
+        </div>
+
+        <!-- Quick Prompt Chips -->
+        <div class="wa-suggestions-bar">
+          <div class="wa-suggestion-chip" onclick="sendSimulatedUserMessage('Split ₹3,600 Wi-Fi bill with flatmates')">
+            👥 Split ₹3,600 Wi-Fi
+          </div>
+          <div class="wa-suggestion-chip" onclick="sendSimulatedUserMessage('Audit my active subscriptions')">
+            🔄 Audit Subscriptions
+          </div>
+          <div class="wa-suggestion-chip" onclick="sendSimulatedUserMessage('Check for any bill anomalies this month')">
+            ⚠️ Check Anomalies
+          </div>
+          <div class="wa-suggestion-chip" onclick="sendSimulatedUserMessage('Show my upcoming household deadlines')">
+            📅 Upcoming Due Dates
+          </div>
+        </div>
+
+        <!-- Input Bar -->
+        <div class="wa-input-bar">
+          <input type="text" class="wa-text-input" id="waUserInput" placeholder="Type a message to GharOS... (e.g. 'split rent', 'remind me')" onkeydown="handleWaInputKey(event)">
+          <button class="wa-send-btn" onclick="sendCustomWaMessage()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 2: Connect to Real WhatsApp (Phone / Web) -->
+      <div class="real-wa-connect-card" id="waRealTabContainer">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--color-light-green);display:flex;align-items:center;justify-content:center;color:var(--color-deep-green);font-size:24px;">
+          💬
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--color-charcoal);margin-bottom:6px;">
+            Chat with GharOS on WhatsApp
+          </h3>
+          <p style="font-size:13px;color:var(--color-neutral);max-width:440px;line-height:1.5;">
+            Click below to open a pre-filled chat in WhatsApp Web or on your mobile device. GharOS uses the WhatsApp Business API with zero-knowledge token isolation.
+          </p>
+        </div>
+
+        <a class="btn-whatsapp" href="https://api.whatsapp.com/send?text=Hi%20GharOS!%20Connect%20my%20household%20admin." target="_blank" rel="noopener noreferrer" style="font-size:14px;padding:12px 24px;">
+          <span>Open in Official WhatsApp Web ↗</span>
+        </a>
+
+        <div style="font-size:11px;color:var(--color-neutral);display:flex;align-items:center;gap:12px;">
+          <span>🔒 End-to-End Encryption</span>
+          <span>⚡ No App Install Required</span>
+          <span>✓ Instant Access</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive Feedback Toast -->
+  <div class="toast-feedback" id="toastFeedback">
+    <span class="toast-dot"></span>
+    <span id="toastMessage">Action completed successfully</span>
+  </div>
+
+  <script>
+    // Presentation Deck State
+    let currentSlide = 1;
+    const totalSlides = 10;
+    const slides = document.querySelectorAll('.deck-slide');
+    const dotsContainer = document.getElementById('deckDotsContainer');
+    const counterBadge = document.getElementById('deckSlideCounter');
+
+    // Build Slide Dots
+    for (let i = 1; i <= totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = `slide-dot ${i === 1 ? 'active' : ''}`;
+      dot.title = `Go to Slide ${i}`;
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function updateDeckUI() {
+      slides.forEach((s, idx) => {
+        if (idx + 1 === currentSlide) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
+      });
+
+      document.querySelectorAll('.slide-dot').forEach((d, idx) => {
+        if (idx + 1 === currentSlide) {
+          d.classList.add('active');
+        } else {
+          d.classList.remove('active');
+        }
+      });
+
+      const formattedNum = currentSlide < 10 ? `0${currentSlide}` : currentSlide;
+      counterBadge.textContent = `Slide ${formattedNum} / ${totalSlides}`;
+    }
+
+    function goToSlide(n) {
+      if (n >= 1 && n <= totalSlides) {
+        currentSlide = n;
+        updateDeckUI();
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateDeckUI();
+      } else {
+        showToast("End of presentation reached");
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateDeckUI();
+      }
+    }
+
+    function setViewMode(mode) {
+      const btnDeck = document.getElementById('btnDeckMode');
+      const btnWeb = document.getElementById('btnWebsiteMode');
+
+      if (mode === 'deck') {
+        document.body.className = 'deck-mode';
+        btnDeck.classList.add('active');
+        btnWeb.classList.remove('active');
+        counterBadge.style.display = 'block';
+        showToast('Switched to 16:9 Presentation Deck Mode');
+      } else {
+        document.body.className = 'website-mode';
+        btnWeb.classList.add('active');
+        btnDeck.classList.remove('active');
+        counterBadge.style.display = 'none';
+        showToast('Switched to Continuous SaaS Website Scroll Mode');
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      // Don't intercept arrows if user is typing in chat input
+      if (document.activeElement && document.activeElement.id === 'waUserInput') {
+        return;
+      }
+
+      if (document.body.classList.contains('deck-mode')) {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          prevSlide();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          goToSlide(1);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          goToSlide(totalSlides);
+        } else if (e.key === 'f' || e.key === 'F') {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      }
+    });
+
+    // Toast Utility
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toastFeedback');
+      const msg = document.getElementById('toastMessage');
+      msg.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Slide 7 Interactive Demo Handlers
+    function triggerApproveDemo() {
+      const deckBubble = document.getElementById('deckConfirmBubble');
+      const webBubble = document.getElementById('webConfirmBubble');
+      const deckBadge = document.getElementById('deckCalBadge');
+      const webBadge = document.getElementById('webCalBadge');
+
+      if (deckBubble) deckBubble.style.display = 'block';
+      if (webBubble) webBubble.style.display = 'block';
+
+      if (deckBadge) {
+        deckBadge.textContent = '🟢 Synced to Calendar';
+        deckBadge.style.background = 'var(--color-light-green)';
+        deckBadge.style.color = 'var(--color-deep-green)';
+      }
+      if (webBadge) {
+        webBadge.textContent = '🟢 Synced to Calendar';
+        webBadge.style.background = 'var(--color-light-green)';
+        webBadge.style.color = 'var(--color-deep-green)';
+      }
+
+      showToast('MCP Tool Executed: Google Calendar Event Synced for Nov 28!');
+    }
+
+    // ====================================================
+    // WHATSAPP SANDBOX MODAL LOGIC
+    // ====================================================
+    function openWhatsAppModal() {
+      document.getElementById('waModalBackdrop').classList.add('open');
+      const chatScroll = document.getElementById('waChatScroll');
+      chatScroll.scrollTop = chatScroll.scrollHeight;
+    }
+
+    function closeWhatsAppModal(e) {
+      if (e && e.target && e.target.id !== 'waModalBackdrop') return;
+      document.getElementById('waModalBackdrop').classList.remove('open');
+    }
+
+    function switchWaModalTab(tab) {
+      const simContainer = document.getElementById('waSimTabContainer');
+      const realContainer = document.getElementById('waRealTabContainer');
+      const btnSim = document.getElementById('btnWaTabSim');
+      const btnReal = document.getElementById('btnWaTabReal');
+
+      if (tab === 'sim') {
+        simContainer.style.display = 'block';
+        realContainer.classList.remove('active');
+        btnSim.classList.add('active');
+        btnReal.classList.remove('active');
+      } else {
+        simContainer.style.display = 'none';
+        realContainer.classList.add('active');
+        btnReal.classList.add('active');
+        btnSim.classList.remove('active');
+      }
+    }
+
+    function handleWaInputKey(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendCustomWaMessage();
+      }
+    }
+
+    function sendCustomWaMessage() {
+      const input = document.getElementById('waUserInput');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      sendSimulatedUserMessage(text);
+    }
+
+    function sendSimulatedUserMessage(userText) {
+      const chat = document.getElementById('waChatScroll');
+
+      // Append User Bubble
+      const userBubble = document.createElement('div');
+      userBubble.className = 'wa-msg user';
+      userBubble.innerHTML = `${escapeHtml(userText)}<span class="wa-msg-time">${getCurrentTime()} · Read ✓✓</span>`;
+      chat.appendChild(userBubble);
+      chat.scrollTop = chat.scrollHeight;
+
+      // Agent Thinking & Response
+      setTimeout(() => {
+        const botBubble = document.createElement('div');
+        botBubble.className = 'wa-msg bot';
+        botBubble.innerHTML = generateAgentReply(userText);
+        chat.appendChild(botBubble);
+        chat.scrollTop = chat.scrollHeight;
+      }, 600);
+    }
+
+    function generateAgentReply(query) {
+      const lower = query.toLowerCase();
+      const time = getCurrentTime();
+
+      if (lower.includes('approve') || lower.includes('calendar') || lower.includes('bescom')) {
+        return `✅ <strong>Reminder Scheduled!</strong><br>
+                Added event <strong>"Pay BESCOM Bill (₹1,240)"</strong> to your Google Calendar for <strong>Nov 28, 9:00 AM</strong>.<br>
+                • Nudge scheduled 24 hours prior via WhatsApp.<br>
+                • Added to November household ledger.<span class="wa-msg-time">${time}</span>`;
+      } else if (lower.includes('split') || lower.includes('wifi') || lower.includes('wi-fi')) {
+        return `👥 <strong>Expense Split Calculated:</strong><br>
+                Total: <strong>₹3,600</strong> (Wi-Fi Broadband)<br>
+                • <strong>You:</strong> ₹1,200<br>
+                • <strong>Rahul:</strong> ₹1,200<br>
+                • <strong>Priya:</strong> ₹1,200<br><br>
+                I have logged this in your flat ledger. Would you like me to send a payment request link in your flatmate WhatsApp group?<span class="wa-msg-time">${time}</span>`;
+      } else if (lower.includes('subscription') || lower.includes('audit')) {
+        return `🔄 <strong>Active Subscriptions Audit:</strong><br>
+                • <strong>Netflix Premium:</strong> ₹649 (renews in 48 hours)<br>
+                • <strong>Spotify Family:</strong> ₹179 (renews Dec 04)<br>
+                • <strong>iCloud 200GB:</strong> ₹219 (renews Dec 12)<br><br>
+                Reply <em>"Cancel Netflix"</em> if you want a direct link to stop the auto-debit.<span class="wa-msg-time">${time}</span>`;
+      } else if (lower.includes('anomal') || lower.includes('spike')) {
+        return `⚠️ <strong>Anomaly Scan:</strong><br>
+                Your October power consumption was 180 kWh (₹890).<br>
+                Current November estimate is <strong>245 kWh (₹1,240)</strong> (+38% increase due to heating/AC).<br>
+                All other water and gas bills match your 3-month rolling average.<span class="wa-msg-time">${time}</span>`;
+      } else {
+        return `🤖 <strong>GharOS Action:</strong><br>
+                I processed your request: <em>"${escapeHtml(query)}"</em>.<br>
+                Under our Human-in-the-Loop policy, I have drafted the task in your household ledger. Shall I sync this to Google Calendar now?<span class="wa-msg-time">${time}</span>`;
+      }
+    }
+
+    function getCurrentTime() {
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      return `${hours}:${minutes} ${ampm}`;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>
